@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Doctor with Vision and Voice</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Doctor with Vision and Voice</h1>
+            <p>Speak to the AI doctor and upload an image for analysis</p>
+        </header>
+
+        <main>
+            <div class="interaction-container">
+                <div class="input-section">
+                    <div class="audio-recorder">
+                        <h2>Voice Input</h2>
+                        <div class="recorder-controls">
+                            <button id="startRecording" class="btn primary">Start Recording</button>
+                            <button id="stopRecording" class="btn secondary" disabled>Stop Recording</button>
+                        </div>
+                        <div id="recordingStatus" class="status"></div>
+                        <div id="audioPreview" class="audio-preview">
+                            <audio id="audioPlayer" controls style="display: none;"></audio>
+                        </div>
+                    </div>
+
+                    <div class="image-uploader">
+                        <h2>Image Upload</h2>
+                        <div class="upload-area" id="uploadArea">
+                            <label for="imageInput" class="upload-label">
+                                <span>Click to upload or drag and drop</span>
+                                <input type="file" id="imageInput" accept="image/*" hidden>
+                            </label>
+                        </div>
+                        <div id="imagePreview" class="image-preview"></div>
+                    </div>
+                </div>
+
+                <div class="submit-section">
+                    <button id="submitButton" class="btn primary large" disabled>Analyze</button>
+                </div>
+
+                <div class="output-section">
+                    <div class="result-card">
+                        <h2>Your Speech</h2>
+                        <div id="speechToTextOutput" class="output-content">
+                            <p class="placeholder">Your transcribed speech will appear here...</p>
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <h2>Doctor's Response</h2>
+                        <div id="doctorResponse" class="output-content">
+                            <p class="placeholder">The doctor's analysis will appear here...</p>
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <h2>Voice Response</h2>
+                        <div id="voiceResponse" class="output-content audio-output">
+                            <audio id="responseAudio" controls style="display: none;"></audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>AI Doctor with Voice and Vision - Node.js Version</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
